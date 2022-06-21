@@ -1,0 +1,32 @@
+Oggi voglio scrivere uno Spider Web e creare un mio motore di ricerca.
+Certo non voglio fare concorrenza a Google, ma certamente mi doterò di uno strumento che potrà essere utile per la mia attività.
+
+
+Se chiedi che linguaggio utilizzeremmo, personalmente direi: Perl. 
+Decisamente Perl, utilizzando il modulo LWP che è adattissimo per fare qualsiasi
+tipo di client web, spider compresi.
+
+Un altro ottimo linguaggio è Python (lo usa anche Google). E lo userebbe mio figlio Guglielmo.
+
+Ma io sono all'antica e voglio dimostrare che il vecchio Visual Basic non si arrende e continua a resistere nel panorama informatico mondiale.
+
+Per catturare l'HTML di una pagina web usiamo il protocollo "Inet Transfer Control / ITC"
+e poi assegniamo alla variabile "page" il contenuto prelevato dalla rete:
+   page = FrmMain.Inet1.OpenURL(pageURL).
+
+Ma attenzione!
+Questo controllo è efficace soltanto per le pagine brevi perchè ha un bug che, tuttavia, Microsoft ha risolto rilasciando un Service Pack.
+
+Vb6 fornisce anche un altro strumento, si può ottenere una matrice di bytes che verranno poi convertiti in una stringa:
+Private Sub cmdGo_Click()
+  Dim bAr() As Byte, cnt As Integer
+  inet.Protocol = icHTTP
+  inet.URL = txtAddress.Text
+  bAr() = inet.OpenURL(, icByteArray)
+  txtOut.Text = StrConv(bAr, vbUnicode)
+End Sub
+
+E ancora, si può scaricare il file via FTP.
+
+Dopo aver ottenuto l'HTML toccherà al parser analizzare il contenuto della pagina ed estrarre le informazioni.
+E anche qui, VB6 è ancora efficace, in un articolo precedente ho pubblicato il codice di un ottimo parser per HTML.
